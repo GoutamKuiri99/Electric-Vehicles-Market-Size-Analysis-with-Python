@@ -107,10 +107,6 @@ Explore the dataset detailing various aspects of electric vehicles registered in
 | **Electric Utility**                | The electric utility service provider for the vehicle’s location. |
 | **2020 Census Tract**               | The census tract for the vehicle's location. |
 
-
-
-**Get Started:** Dive into the data and explore the insights that will shape the future of electric vehicles. For detailed analysis and visualizations, refer to the [project notebook](link-to-your-notebook).
-
 ---
 
 Feel free to explore and contribute to the ongoing analysis!
@@ -136,5 +132,44 @@ profile = ProfileReport(ev_data, title="Electric Vehicle Population Data Profili
 
 # Display the report in the notebook
 profile.to_notebook_iframe()
+```
+
+## Data Cleaning
+
+### Identifying Missing Values
+
+In this step, we identify missing values in the dataset. Below is the summary of missing values in each column:
+
+```python
+# Identifying missing values
+missing_values = ev_data.isnull().sum()
+print("Missing values in each column:\n", missing_values)
+```
+
+
+**Missing Values Summary:**
+
+| Column                                               | Missing Values |
+|------------------------------------------------------|-----------------|
+| VIN (1-10)                                           | 0               |
+| County                                               | 8               |
+| City                                                 | 8               |
+| State                                                | 0               |
+| Postal Code                                          | 8               |
+| Model Year                                           | 0               |
+| Make                                                 | 0               |
+| Model                                                | 249             |
+| Electric Vehicle Type                                | 0               |
+| Clean Alternative Fuel Vehicle (CAFV) Eligibility    | 0               |
+| Electric Range                                       | 1               |
+| Base MSRP                                            | 1               |
+| Legislative District                                | 312             |
+| DOL Vehicle ID                                       | 0               |
+| Vehicle Location                                    | 10              |
+| Electric Utility                                     | 8               |
+| 2020 Census Tract                                    | 8               |
+
+This table provides a clear view of the number of missing values for each column in the dataset.
+
 
 
