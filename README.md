@@ -170,5 +170,121 @@ print("Missing values in each column:\n", missing_values)
 
 This table provides a clear view of the number of missing values for each column in the dataset.
 
+ **2. Handling Missing Values**
 
+ **Strategy: Impute with Mode or Common Value**
 
+For categorical columns with missing values, we fill in the missing values using the mode (most frequent value) for each column. This approach ensures that the imputation is based on the most common category, which helps maintain data consistency.
+
+**Example: Imputing Missing Values in 'County' Column**
+
+First, we identify the mode for the 'County' column:
+
+```python
+# Calculate mode for the 'County' column
+mode_county = ev_data["County"].mode()[0]
+```
+### Verifying Missing Value Handling
+
+After applying the appropriate strategies to handle missing values, it's important to verify that all missing values have been successfully addressed. We can check this by using the `.isnull().sum()` function, which returns the count of missing values in each column.
+
+```python
+# Verify missing values in the dataset
+ev_data.isnull().sum()
+```
+
+After handling the missing values, the following table shows the count of missing values in each column:
+
+| Column Name                                          | Missing Values |
+|------------------------------------------------------|----------------|
+| VIN (1-10)                                           | 0              |
+| County                                               | 0              |
+| City                                                 | 0              |
+| State                                                | 0              |
+| Postal Code                                          | 0              |
+| Model Year                                           | 0              |
+| Make                                                 | 0              |
+| Model                                                | 0              |
+| Electric Vehicle Type                                | 0              |
+| Clean Alternative Fuel Vehicle (CAFV) Eligibility    | 0              |
+| Electric Range                                       | 0              |
+| Base MSRP                                            | 0              |
+| Legislative District                                 | 0              |
+| DOL Vehicle ID                                       | 0              |
+| Vehicle Location                                     | 0              |
+| Electric Utility                                     | 0              |
+| 2020 Census Tract                                    | 0              |
+
+All columns now have `0` missing values, indicating that the missing value handling process was successful.
+
+## Outlier Detection and Handling for Numerical Columns
+
+Outliers in numerical columns can significantly skew the results of any analysis, so it's essential to detect and handle them appropriately. We use the Interquartile Range (IQR) method to identify and count outliers in the numerical columns of our dataset.
+
+### Methodology: IQR Method for Outlier Detection
+
+The IQR method calculates the range between the 1st quartile (Q1) and the 3rd quartile (Q3) of the data. Outliers are defined as data points that fall below `Q1 - 1.5 * IQR` or above `Q3 + 1.5 * IQR`.
+
+### Python Code for Outlier Detection
+
+Below is the Python code used to detect and count outliers in numerical columns using the IQR method:
+
+```python
+import pandas as pd
+
+# Function to handle outliers using the IQR method and return the count of outliers
+def count_outliers_iqr(df, column):
+    data = df[column]
+    Q1 = data.quantile(0.25)
+    Q3 = data.quantile(0.75)
+    IQR = Q3 - Q1
+
+    # Define outlier bounds
+    lower_bound = Q1 - 1.5 * IQR
+    upper_bound = Q3 + 1.5 * IQR
+
+    # Identify outliers
+    outliers = df[(data < lower_bound) | (data > upper_bound)]
+    
+    return len(outliers)
+
+# List of numerical columns to process
+numerical_columns = ['Model Year', 'Electric Range', 'Base MSRP', 'Legislative District', 'DOL Vehicle ID', '2020 Census Tract']
+
+# Initialize a dictionary to store the count of outliers for each column
+outliers_count = {}
+
+# Count outliers for each numerical column
+for col in numerical_columns:
+    outliers_count[col] = count_outliers_iqr(ev_data, col)
+
+# Print outliers count for each column
+print("Outliers count for each column:")
+for col, count in outliers_count.items():
+    print(f"{col}: {count}")
+
+# Calculate the total number of outliers across all columns
+total_outliers = sum(outliers_count.values())
+print(f"\nTotal number of outliers across all columns: {total_outliers}")
+```
+
+### Outliers Count
+
+The table below shows the count of outliers for each numerical column:
+
+| Column Name               | Outliers Count |
+|---------------------------|----------------|
+| Model Year                | 876            |
+| Electric Range            | 0              |
+| Base MSRP                 | 3425           |
+| Legislative District      | 0              |
+| DOL Vehicle ID            | 14122          |
+| 2020 Census Tract         | 343            |
+
+### Total Outliers
+
+The total number of outliers across all columns is **18,766**.
+
+### Conclusion
+
+Handling outliers is crucial to maintaining the quality and reliability of the data. By identifying and managing outliers, we ensure that the dataset is clean and the results of any subsequent analysis are accurate and meaningful.
