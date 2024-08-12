@@ -12,7 +12,7 @@
    2. [Objectives](#objectives)
 2. [Business Problem / Stakeholder Concerns](#business-problem--stakeholder-concerns)
 3. [Importing Libraries](#importing-libraries)
-4. [Loading Data](#loading-data)
+4. [Data Loading](#data-loading)
 5. [Generating Comprehensive Data Profile Report Using Pandas Profiling](#generating-comprehensive-data-profile-report-using-pandas-profiling)
 6. [Methodology](#methodology)
    1. [Data Collection](#data-collection)
@@ -28,6 +28,7 @@
    5. [Electric Range Trends](#electric-range-trends)
    6. [Market Size Growth](#market-size-growth)
 8. [Conclusion or Summary](#conclusion-or-summary)
+
 
 ## Introduction
 
@@ -115,7 +116,7 @@ Explore the dataset detailing various aspects of electric vehicles registered in
 Feel free to explore and contribute to the ongoing analysis!
 
 
-### 📊 Electric Vehicle Population Data Profiling Report
+### 📊 Generating Comprehensive Data Profile Report Using Pandas Profiling
 
 The comprehensive data profiling report for the Electric Vehicle Population dataset has been generated using Pandas Profiling. This report provides a detailed overview of the dataset, including statistics, missing values, correlations, and more.
 
