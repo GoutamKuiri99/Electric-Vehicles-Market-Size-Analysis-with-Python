@@ -133,7 +133,7 @@ profile = ProfileReport(ev_data, title="Electric Vehicle Population Data Profili
 profile.to_notebook_iframe()
 ```
 ## Methodology
-### 1. Data Cleaning
+### Data Cleaning
 
 **(i) Identifying Missing Values**
 
