@@ -116,7 +116,7 @@ Explore the dataset detailing various aspects of electric vehicles registered in
 Feel free to explore and contribute to the ongoing analysis!
 
 
-### 📊 Generating Comprehensive Data Profile Report Using Pandas Profiling
+###  Generating Comprehensive Data Profile Report Using Pandas Profiling
 
 The comprehensive data profiling report for the Electric Vehicle Population dataset has been generated using Pandas Profiling. This report provides a detailed overview of the dataset, including statistics, missing values, correlations, and more.
 
