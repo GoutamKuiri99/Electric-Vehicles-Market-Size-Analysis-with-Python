@@ -184,38 +184,7 @@ First, we identify the mode for the 'County' column:
 # Calculate mode for the 'County' column
 mode_county = ev_data["County"].mode()[0]
 ```
-### Verifying Missing Value Handling
 
-After applying the appropriate strategies to handle missing values, it's important to verify that all missing values have been successfully addressed. We can check this by using the `.isnull().sum()` function, which returns the count of missing values in each column.
-
-```python
-# Verify missing values in the dataset
-ev_data.isnull().sum()
-```
-
-After handling the missing values, the following table shows the count of missing values in each column:
-
-| Column Name                                          | Missing Values |
-|------------------------------------------------------|----------------|
-| VIN (1-10)                                           | 0              |
-| County                                               | 0              |
-| City                                                 | 0              |
-| State                                                | 0              |
-| Postal Code                                          | 0              |
-| Model Year                                           | 0              |
-| Make                                                 | 0              |
-| Model                                                | 0              |
-| Electric Vehicle Type                                | 0              |
-| Clean Alternative Fuel Vehicle (CAFV) Eligibility    | 0              |
-| Electric Range                                       | 0              |
-| Base MSRP                                            | 0              |
-| Legislative District                                 | 0              |
-| DOL Vehicle ID                                       | 0              |
-| Vehicle Location                                     | 0              |
-| Electric Utility                                     | 0              |
-| 2020 Census Tract                                    | 0              |
-
-All columns now have `0` missing values, indicating that the missing value handling process was successful.
 
 ## Outlier Detection to All Numerical Columns and Handling
 
@@ -288,3 +257,36 @@ The total number of outliers across all columns is **18,766**.
 ### Conclusion
 
 Handling outliers is crucial to maintaining the quality and reliability of the data. By identifying and managing outliers, we ensure that the dataset is clean and the results of any subsequent analysis are accurate and meaningful.
+
+### Checking or Ensuring Final Cleaned Dataset
+
+After applying the appropriate strategies to handle missing values, it's important to verify that all missing values have been successfully addressed. We can check this by using the `.isnull().sum()` function, which returns the count of missing values in each column.
+
+```python
+# Verify missing values in the dataset
+ev_data.isnull().sum()
+```
+
+After handling the missing values, the following table shows the count of missing values in each column:
+
+| Column Name                                          | Missing Values |
+|------------------------------------------------------|----------------|
+| VIN (1-10)                                           | 0              |
+| County                                               | 0              |
+| City                                                 | 0              |
+| State                                                | 0              |
+| Postal Code                                          | 0              |
+| Model Year                                           | 0              |
+| Make                                                 | 0              |
+| Model                                                | 0              |
+| Electric Vehicle Type                                | 0              |
+| Clean Alternative Fuel Vehicle (CAFV) Eligibility    | 0              |
+| Electric Range                                       | 0              |
+| Base MSRP                                            | 0              |
+| Legislative District                                 | 0              |
+| DOL Vehicle ID                                       | 0              |
+| Vehicle Location                                     | 0              |
+| Electric Utility                                     | 0              |
+| 2020 Census Tract                                    | 0              |
+
+All columns now have `0` missing values, indicating that the missing value handling process was successful.
