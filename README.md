@@ -217,7 +217,7 @@ After handling the missing values, the following table shows the count of missin
 
 All columns now have `0` missing values, indicating that the missing value handling process was successful.
 
-## Outlier Detection and Handling for Numerical Columns
+## Outlier Detection to All Numerical Columns and Handling
 
 Outliers in numerical columns can significantly skew the results of any analysis, so it's essential to detect and handle them appropriately. We use the Interquartile Range (IQR) method to identify and count outliers in the numerical columns of our dataset.
 
