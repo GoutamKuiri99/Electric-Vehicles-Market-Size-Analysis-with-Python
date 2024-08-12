@@ -132,10 +132,10 @@ profile = ProfileReport(ev_data, title="Electric Vehicle Population Data Profili
 # Display the report in the notebook
 profile.to_notebook_iframe()
 ```
+## Methodology
+### 1. Data Cleaning
 
-## Data Cleaning
-
-### Identifying Missing Values
+**(i) Identifying Missing Values**
 
 In this step, we identify missing values in the dataset. Below is the summary of missing values in each column:
 
